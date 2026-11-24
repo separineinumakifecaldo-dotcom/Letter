@@ -1,0 +1,514 @@
+
+/* ==========================
+   GLOBAL SETTINGS
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: 'Poppins', sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fce4ec,
+            #fff5f5,
+            #f7dce6,
+            #fff0f3
+        );
+
+    color: #754858;
+
+    overflow-x: hidden;
+}
+
+/* ==========================
+   PAGE TRANSITIONS
+========================== */
+
+.page {
+    display: none;
+
+    width: 100%;
+    min-height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 35px 18px;
+}
+
+.page.active {
+    display: flex;
+
+    animation: pageEnter 0.8s ease;
+}
+
+@keyframes pageEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ==========================
+   MUSIC BUTTON
+========================== */
+
+.music-btn {
+    position: fixed;
+
+    top: 20px;
+    right: 20px;
+
+    z-index: 1000;
+
+    padding: 11px 18px;
+
+    border: 1px solid #e9bdcc;
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.8);
+
+    color: #a34e70;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition: 0.3s;
+}
+
+.music-btn:hover {
+    background: #f5d1de;
+    transform: scale(1.05);
+}
+
+/* ==========================
+   PAGE 1 COVER
+========================== */
+
+.cover-card {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 490px;
+
+    padding: 55px 30px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.65);
+
+    border: 1px solid rgba(255,255,255,0.9);
+
+    border-radius: 30px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 20px 50px rgba(173,94,124,0.14);
+}
+
+.top-label {
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #bd8298;
+
+    margin-bottom: 25px;
+}
+
+.decorative-heart {
+
+    font-size: 75px;
+
+    color: #d987a6;
+
+    animation: heartbeat 2s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+.cover-card h1 {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: clamp(45px, 10vw, 70px);
+
+    font-weight: normal;
+
+    line-height: 1.15;
+
+    color: #a94f72;
+
+    margin: 15px 0;
+}
+
+.cover-card h1 span {
+
+    display: block;
+
+    color: #ca7999;
+}
+
+.subtitle {
+
+    max-width: 300px;
+
+    margin: 15px auto;
+
+    font-size: 12px;
+
+    line-height: 2;
+
+    color: #a77b8b;
+}
+
+.divider {
+
+    color: #d69ab0;
+
+    margin: 25px 0;
+
+}
+
+.envelope {
+
+    margin: 10px auto 25px;
+
+}
+
+.envelope-icon {
+
+    font-size: 65px;
+
+    animation: envelopeFloat 3s ease-in-out infinite;
+}
+
+@keyframes envelopeFloat {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.main-btn,
+.back-btn {
+
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9a6bd,
+            #ce7899
+        );
+
+    color: white;
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 8px 20px rgba(195,111,146,0.25);
+}
+
+.main-btn:hover,
+.back-btn:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 12px 25px rgba(195,111,146,0.35);
+}
+
+.main-btn span {
+    margin-left: 5px;
+}
+
+.bottom-label {
+
+    font-size: 10px;
+
+    color: #bd91a2;
+
+    margin-top: 30px;
+}
+
+/* ==========================
+   PAGE 2 LETTER
+========================== */
+
+.letter-container {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    text-align: center;
+}
+
+.letter-paper {
+
+    position: relative;
+
+    padding: 45px 40px;
+
+    background: #fffdf8;
+
+    border: 1px solid #f1e4dc;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 15px 45px rgba(100,55,65,0.15);
+
+    text-align: left;
+}
+
+.letter-paper::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 20px;
+
+    width: 2px;
+    height: 100%;
+
+    background: #f5dce3;
+}
+
+.letter-header {
+
+    text-align: center;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: #d18aa5;
+
+    margin-bottom: 18px;
+}
+
+.letter-header span {
+    margin: 0 8px;
+}
+
+.letter-date {
+
+    text-align: center;
+
+    font-size: 10px;
+
+    color: #c49aa8;
+
+    margin-bottom: 30px;
+}
+
+.letter-paper h2 {
+
+    font-family: 'Great Vibes', cursive;
+
+    font-size: 38px;
+
+    font-weight: normal;
+
+    color: #a94f72;
+
+    margin-bottom: 25px;
+}
+
+/* LETTER CONTENT */
+
+.letter-body p {
+
+    font-size: 12px;
+
+    line-height: 2.1;
+
+    color: #795d65;
+
+    margin-bottom: 18px;
+}
+
+.last-message {
+
+    color: #b55f80 !important;
+
+}
+
+/* SIGNATURE */
+
+.signature {
+
+    margin-top: 35px;
+}
+
+.signature p {
+
+    font-size: 12px;
+
+    color: #795d65;
+}
+
+.signature h2 {
+
+    margin-top: 5px;
+
+    font-size: 37px;
+}
+
+/* FOOTER */
+
+.letter-footer {
+
+    text-align: center;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: #d18aa5;
+
+    margin-top: 35px;
+}
+
+/* BACK BUTTON */
+
+.back-btn {
+
+    margin-top: 25px;
+
+}
+
+/* ==========================
+   FLOATING HEARTS
+========================== */
+
+#hearts {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.heart {
+
+    position: absolute;
+
+    bottom: -40px;
+
+    color: rgba(208,115,153,0.4);
+
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+/* ==========================
+   MOBILE RESPONSIVE
+========================== */
+
+@media (max-width: 600px) {
+
+    .cover-card {
+        padding: 45px 20px;
+    }
+
+    .letter-paper {
+        padding: 35px 28px;
+    }
+
+    .letter-paper h2 {
+        font-size: 32px;
+    }
+
+    .letter-body p {
+        font-size: 11px;
+        line-height: 2;
+    }
+
+    .music-btn {
+        top: 12px;
+        right: 12px;
+
+        font-size: 10px;
+
+        padding: 9px 13px;
+    }
+
+}
